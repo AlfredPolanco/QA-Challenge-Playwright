@@ -6,16 +6,20 @@ jobs:
     # Steps to the job
     steps:
       - checkout
-      - run: npm i -D @playwright/test
-      - run: npx playwright install --with-deps chrome
+      - run:
+          name: Install dependencies
+          command: npm i -D @playwright/test
+      - run: 
+          name: Install Playwright with Chrome
+          command: npx playwright install --with-deps chrome
       - run: 
           name: Set up environment variables into .env
           command: |
             echo "USERNAME=${USERNAME}" > .env
             echo "PASSWORD=${PASSWORD}" >> .env
       - run:
-          name: Run test
-          command: PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml npx playwright test --reporter=junit --project=chromium
+          name: Run Playwright Tests
+          command: npm run all-tests
 # Invoke jobs via workflows
 workflows:
   run-test-workflow:
