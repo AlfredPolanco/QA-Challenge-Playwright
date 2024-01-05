@@ -5,6 +5,11 @@ jobs:
       - image: mcr.microsoft.com/playwright:v1.23.1-focal
     # Steps to the job
     steps:
+      - run: 
+          name: Set up environment variables into .env
+          command: |
+            echo "USERNAME=${USERNAME}" > .env
+            echo "PASSWORD=${PASSWORD}" >> .env
       - checkout
       - run: npm i -D @playwright/test
       - run: npx playwright install --with-deps
