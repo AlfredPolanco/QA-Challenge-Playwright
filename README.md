@@ -1,1 +1,1 @@
-# QA-Challenge-TestCafe
+# QA-Challenge-Playwright
