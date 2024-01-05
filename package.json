@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "all-tests": "npx playwright test --project=chromium",
+    "clean": "rm -rf allure-results/ && rm -rf allure-report/ && rm -rf playwright-report/",
+    "allure-report": "npm run clean && npm run all-tests && npm run post-test",
+    "post-test": "npx allure generate ./allure-results --clean && npx allure open ./allure-report",
     "test": "npx playwright test",
     "test-debug": "npx playwright test --debug"
   },
@@ -21,7 +24,9 @@
   "homepage": "https://github.com/AlfredPolanco/QA-Challenge-Playwright#readme",
   "devDependencies": {
     "@playwright/test": "^1.40.1",
-    "@types/node": "^20.10.6"
+    "@types/node": "^20.10.6",
+    "allure-commandline": "^2.25.0",
+    "allure-playwright": "^2.10.0"
   },
   "dependencies": {
     "dotenv": "^16.3.1"
