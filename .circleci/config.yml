@@ -8,7 +8,7 @@ jobs:
       - run: 
           name: Set up environment variables into .env
           command: |
-            echo $USERNAME
+            echo "$USERNAME"
       - checkout
       - run: npm i -D @playwright/test
       - run: npx playwright install --with-deps chrome
