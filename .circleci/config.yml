@@ -3,6 +3,12 @@ jobs:
   run-test:
     docker:
       - image: mcr.microsoft.com/playwright:v1.23.1-focal
+    environment:
+      - run:
+          name: Set up environment variables into .env
+          command: |
+            "USERNAME=${USERNAME}" > .env
+            "PASSWORD=${PASSWORD}" >> .env
     # Steps to the job
     steps:
       - checkout
