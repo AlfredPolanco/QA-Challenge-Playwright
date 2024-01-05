@@ -13,10 +13,10 @@ jobs:
           name: Install Playwright with Chrome
           command: npx playwright install --with-deps chrome
       - run:
-          name: Set up environment variables into .env
+          name: Setting up env variables
           command: |
-            echo "USERNAME=${USERNAME}" > .env.production
-            echo "PASSWORD=${PASSWORD}" >> .env.production
+            echo "Setting up USERNAME..."
+            echo "Setting up PASSWORD..."
       - run:
           name: Run Playwright Tests
           command: npm run all-tests

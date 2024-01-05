@@ -3,9 +3,6 @@ const { expect } = require('@playwright/test');
 const fakeEmail = "test@gmail.com";
 const fakePassword = "123";
 
-const username = process.env.USERNAME;
-const password = process.env.PASSWORD;
-
 exports.LoginPage = class LoginPage {
 	/**
 	 * @param {import('@playwright/test').Page} page
@@ -59,8 +56,8 @@ exports.LoginPage = class LoginPage {
 
 	async login() {
 		await this.checkLoginPage();
-		await this.userNameInput.fill(username);
-		await this.passwordInput.fill(password);
+		await this.userNameInput.fill(process.env.USERNAME);
+		await this.passwordInput.fill(process.env.PASSWORD);
 		await this.loginButton.click();
 	}
 
