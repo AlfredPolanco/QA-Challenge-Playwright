@@ -5,14 +5,14 @@ jobs:
       - image: mcr.microsoft.com/playwright:v1.23.1-focal
     # Steps to the job
     steps:
+      - checkout
+      - run: npm i -D @playwright/test
+      - run: npx playwright install --with-deps chrome
       - run: 
           name: Set up environment variables into .env
           command: |
             echo "USERNAME=${USERNAME}" > .env
             echo "PASSWORD=${PASSWORD}" >> .env
-      - checkout
-      - run: npm i -D @playwright/test
-      - run: npx playwright install --with-deps chrome
       - run:
           name: Run test
           command: PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml npx playwright test --reporter=junit --project=chromium
