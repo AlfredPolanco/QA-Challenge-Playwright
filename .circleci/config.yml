@@ -9,10 +9,10 @@ jobs:
       - run:
           name: Install dependencies
           command: npm i -D @playwright/test
-      - run: 
+      - run:
           name: Install Playwright with Chrome
           command: npx playwright install --with-deps chrome
-      - run: 
+      - run:
           name: Set up environment variables into .env
           command: |
             echo "USERNAME=${USERNAME}" > .env.production
