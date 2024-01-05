@@ -15,8 +15,8 @@ jobs:
       - run: 
           name: Set up environment variables into .env
           command: |
-            echo "USERNAME=${USERNAME}" > .env
-            echo "PASSWORD=${PASSWORD}" >> .env
+            echo "USERNAME=${USERNAME}" > .env.production
+            echo "PASSWORD=${PASSWORD}" >> .env.production
       - run:
           name: Run Playwright Tests
           command: npm run all-tests
