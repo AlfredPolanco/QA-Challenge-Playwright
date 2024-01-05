@@ -11,7 +11,7 @@ test.describe('Login tests', () => {
 		const login = new LoginPage(page);
     const dashboard = new DashboardPage(page);
 		await login.checkLoginPage();
-    await login.login();
+    await login.login(process.env.USERNAME, process.env.PASSWORD);
     await dashboard.checkDashBoardPage();
 	});
 
@@ -43,7 +43,7 @@ test.describe('Login tests', () => {
 		const login = new LoginPage(page);
     const dashboard = new DashboardPage(page);
 		await login.checkLoginPage();
-    await login.login();
+    await login.login(process.env.USERNAME, process.env.PASSWORD);
     await dashboard.logout();
     await login.checkLoginPage();
 	});

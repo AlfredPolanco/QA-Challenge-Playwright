@@ -1,9 +1,7 @@
 const { expect } = require('@playwright/test');
-require('dotenv').config();
 
 const fakeEmail = "test@gmail.com";
 const fakePassword = "123";
-
 
 exports.LoginPage = class LoginPage {
 	/**
@@ -56,10 +54,10 @@ exports.LoginPage = class LoginPage {
 		await expect(this.singleRequiredWarning).toBeVisible();
 	}
 
-	async login() {
+	async login(username, password) {
 		await this.checkLoginPage();
-		await this.userNameInput.fill(process.env.USERNAME);
-		await this.passwordInput.fill(process.env.PASSWORD);
+		await this.userNameInput.fill(username);
+		await this.passwordInput.fill(password);
 		await this.loginButton.click();
 	}
 
