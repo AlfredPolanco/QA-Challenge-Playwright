@@ -3,14 +3,15 @@
 The provided project is an automation framework crafted using Playwright and incorporates best practices in JavaScript. It has been designed to address specific modules outlined in a comprehensive test plan for [OrangeHRM](https://opensource-demo.orangehrmlive.com/)
 
 # Test cases
+### Test cases will be documented on [QATouch](https://www.qatouch.com/)
 - Verify Successful Login with Valid Credentials <br>
-- Verify Display of Error Messages on Login Form for Invalid Username <br>
-- Verify Display of Error Messages on Login Form for Invalid Password <br>
-- Verify Display of Error Messages on Login Form for Empty Fields <br>
-- Verify Display of Error Messages on Login Form for Invalid Credentials <br>
-- Verify Display of OrangeHRM Version in the UI <br>
+- Verify Display of Error Message on Login Form with Empty Fields <br>
+- Verify Empty Username Error Message on Login Form <br>
+- Verify Empty Password Error Message on Login Form <br>
+- Verify Display of Error Message on Login Form for Invalid Credentials<br>
+- Verify Display of Active Employees Count <br>
 - Verify Side Menu Expands/Collapses Correctly <br>
-- Verify Display of Latest Buzz Posts on Dashboard <br>
+- Verify Display of Buzz Latest Posts on Dashboard <br>
 - Verify User Can Successfully Create a Post Content on Buzz Newsfeed <br>
 - Verify User Can Successfully Logout <br>
 
