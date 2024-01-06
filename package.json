@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "all-tests": "npx playwright test --project=chromium",
-    "cleanup": "rm -rf allure-results/ && rm -rf allure-report/ && rm -rf playwright-report/ && rm -fr API-TestReport",
-    "e2e-tests": "npm run cleanup && npx playwright test && npm run post-test",
-    "post-test": "npx allure generate ./allure-results --clean && npx allure open ./allure-report",
     "test-debug": "npx playwright test --debug",
-    "api-tests-newman": "npm run cleanup && newman run ./Newman/Collection/Marvel_API_Challenge_Collection.postman_collection.json -e ./Newman/Environment/Marvel_Env.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export ./API-TestReport/MarvelAPITestReport.html"
+    "tests": "npx playwright test",
+    "e2e-tests": "npm run cleanup && npx playwright test && npm run post-test",
+    "api-tests-newman": "npm run cleanup && newman run ./Newman/Collection/Marvel_API_Challenge_Collection.postman_collection.json -e ./Newman/Environment/Marvel_Env.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export ./API-TestReport/MarvelAPITestReport.html",
+    "post-test": "npx allure generate ./allure-results --clean && npx allure open ./allure-report",
+    "cleanup": "rm -rf allure-results/ && rm -rf allure-report/ && rm -rf playwright-report/ && rm -fr API-TestReport"
   },
   "repository": {
     "type": "git",
