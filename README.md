@@ -3,17 +3,8 @@
 The provided project is an automation framework crafted using Playwright and incorporates best practices in JavaScript. It has been designed to address specific modules outlined in a comprehensive test plan for [OrangeHRM](https://opensource-demo.orangehrmlive.com/)
 
 # Test cases
-### Test cases will be documented on [QATouch](https://www.qatouch.com/)
-- Verify Successful Login with Valid Credentials <br>
-- Verify Display of Error Message on Login Form with Empty Fields <br>
-- Verify Empty Username Error Message on Login Form <br>
-- Verify Empty Password Error Message on Login Form <br>
-- Verify Display of Error Message on Login Form for Invalid Credentials<br>
-- Verify Display of Active Employees Count <br>
-- Verify Side Menu Expands/Collapses Correctly <br>
-- Verify Display of Buzz Latest Posts on Dashboard <br>
-- Verify User Can Successfully Create a Post Content on Buzz Newsfeed <br>
-- Verify User Can Successfully Logout <br>
+### Test cases are currently documented on [QATouch](https://www.qatouch.com/)
+To access them, please contact me at alfredpolanci@gmail.com
 
 ## Tech Stack
 
@@ -40,4 +31,22 @@ git clone https://github.com/AlfredPolanco/QA-Challenge-Playwright.git
 2. Install dependencies and packages required for the project
 ```bash
 npm i
+```
+
+3. For local testing you must set up your `.env` file using the following format
+```
+USERNAME=REPLACE_WITH_USERNAME
+PASSWORD=REPLACE_WITH_PASSWORD
+```
+
+## Usage
+
+- To run Playwright tests just run the following command, once it is done, an Allure report will be generated and opened automatically.
+```
+npm run e2e-tests
+```
+
+- To run Marvel API Tests the tests just run the following command, once it is done, a report will be generated on `/API-TestReport/MarvelAPITestReport.html`
+```
+npm run api-tests-newman
 ```
