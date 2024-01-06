@@ -22,6 +22,8 @@ The provided project is an automation framework crafted using Playwright and inc
 [![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/about/)
 [![Playwright](https://img.shields.io/badge/-Playwright-orange)](https://playwright.dev/)
 [![DotEnv](https://img.shields.io/badge/-dotenv-orange)](https://www.npmjs.com/package/dotenv)
+[![newman](https://img.shields.io/badge/-newman-green)](https://www.npmjs.com/package/newman)
+[![newman-reporter-htmlextra](https://img.shields.io/badge/htmlextra-orange)](https://www.npmjs.com/package/newman-reporter-htmlextra)
 
 ## Important
 Once we push a commit to our `dev` branch the pipeline will automatically run and show the status of the same so we are aware of the changes <br>

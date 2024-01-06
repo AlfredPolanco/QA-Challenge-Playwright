@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "a06b8ccf-6537-4bb3-ae1c-e9d648426ee0",
+		"name": "Marvel API Challenge Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "6331563"
+	},
+	"item": [
+		{
+			"name": "Get All characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Assertion list\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(JSON.stringify(jsonData)).to.include(\"data\");",
+							"    pm.expect(jsonData.data.limit).to.eql(100);",
+							"    pm.expect(jsonData).to.not.be.null;",
+							"});",
+							"",
+							"// Runs the next request",
+							"postman.setNextRequest(\"Get All Spider-Man Comics\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/public/characters?apikey={{apikey}}&hash={{hash}}&ts=1&limit=100",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"public",
+						"characters"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{apikey}}"
+						},
+						{
+							"key": "hash",
+							"value": "{{hash}}"
+						},
+						{
+							"key": "ts",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "100"
+						},
+						{
+							"key": "comics",
+							"value": "X-Men",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Spider-Man Comics",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Assertion list\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(JSON.stringify(jsonData)).to.include(\"results\");",
+							"    pm.expect(jsonData.data.limit).to.eql(100);",
+							"    pm.expect(jsonData.data.total).to.eql(199);",
+							"    pm.expect(jsonData).to.not.be.null;",
+							"});",
+							"",
+							"//Runs the next request",
+							"postman.setNextRequest(\"Get All Characters for X-Men Comics\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/public/characters/1009491/comics?apikey={{apikey}}&hash={{hash}}&ts=1&limit=100",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"public",
+						"characters",
+						"1009491",
+						"comics"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{apikey}}"
+						},
+						{
+							"key": "hash",
+							"value": "{{hash}}"
+						},
+						{
+							"key": "ts",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Characters for X-Men Comics",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Assertion list\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(JSON.stringify(jsonData)).to.include(\"data\");",
+							"    pm.expect(JSON.stringify(jsonData)).to.include(\"results\");",
+							"    pm.expect(jsonData.data.limit).to.eql(20);",
+							"    pm.expect(jsonData.data.total).to.eql(9);",
+							"    pm.expect(jsonData).to.not.be.null;",
+							"});",
+							"",
+							"//Runs the next request",
+							"postman.setNextRequest(\"Invalid scenario 1 - No apiKey and no Hash\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/public/comics/102237/characters?apikey={{apikey}}&hash={{hash}}&ts=1",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"public",
+						"comics",
+						"102237",
+						"characters"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{apikey}}"
+						},
+						{
+							"key": "hash",
+							"value": "{{hash}}"
+						},
+						{
+							"key": "ts",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid scenario 1 - No apiKey and no Hash",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Assertion list\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.response.to.have.status(409);",
+							"    pm.expect(JSON.stringify(jsonData)).to.include(\"code\");",
+							"    pm.expect(jsonData.code).to.eql(\"MissingParameter\");",
+							"    pm.expect(JSON.stringify(jsonData)).to.include(\"message\");",
+							"    pm.expect(jsonData.message).to.eql(\"You must provide a user key.\");",
+							"    pm.expect(jsonData).to.not.be.null;",
+							"});",
+							"",
+							"//Runs the next request",
+							"postman.setNextRequest(\"Invalid scenario 2 - No Hash\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/public/characters?ts=1&limit=100",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"public",
+						"characters"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid scenario 2 - No Hash",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Assertion list\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.response.to.have.status(409);",
+							"    pm.expect(JSON.stringify(jsonData)).to.include(\"code\");",
+							"    pm.expect(jsonData.code).to.eql(\"MissingParameter\");",
+							"    pm.expect(JSON.stringify(jsonData)).to.include(\"message\");",
+							"    pm.expect(jsonData.message).to.eql(\"You must provide a hash.\");",
+							"    pm.expect(jsonData).to.not.be.null;",
+							"});",
+							"",
+							"//Runs the next request",
+							"postman.setNextRequest(\"Invalid scenario 3 - No timestamp\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/public/characters?apikey={{apikey}}&ts=1&limit=100",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"public",
+						"characters"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{apikey}}"
+						},
+						{
+							"key": "ts",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid scenario 3 - No timestamp",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Assertion list\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.response.to.have.status(409);",
+							"    pm.expect(JSON.stringify(jsonData)).to.include(\"code\");",
+							"    pm.expect(jsonData.code).to.eql(\"MissingParameter\");",
+							"    pm.expect(JSON.stringify(jsonData)).to.include(\"message\");",
+							"    pm.expect(jsonData.message).to.eql(\"You must provide a timestamp.\");",
+							"    pm.expect(jsonData).to.not.be.null;",
+							"});",
+							"",
+							"//Runs the next request",
+							"postman.setNextRequest(\"Invalid scenario 4 - Invalid characterID\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/public/characters?hash={{hash}}&apikey={{apikey}}&limit=100",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"public",
+						"characters"
+					],
+					"query": [
+						{
+							"key": "hash",
+							"value": "{{hash}}"
+						},
+						{
+							"key": "apikey",
+							"value": "{{apikey}}"
+						},
+						{
+							"key": "ts",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid scenario 4 - Invalid characterID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Assertion list\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.response.to.have.status(409);",
+							"    pm.expect(JSON.stringify(jsonData)).to.include(\"code\");",
+							"    pm.expect(jsonData.code).to.eql(409);",
+							"    pm.expect(JSON.stringify(jsonData)).to.include(\"status\");",
+							"    pm.expect(jsonData.status).to.eql(\"You must pass at least one valid character if you set the character filter.\");",
+							"    pm.expect(jsonData).to.not.be.null;",
+							"});",
+							"",
+							"// Runs the next request",
+							"postman.setNextRequest(\"Invalid scenario 5 - Exceeding item limit\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/public/characters/0/comics?apikey={{apikey}}&hash={{hash}}&ts=1&limit=100",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"public",
+						"characters",
+						"0",
+						"comics"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{apikey}}"
+						},
+						{
+							"key": "hash",
+							"value": "{{hash}}"
+						},
+						{
+							"key": "ts",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid scenario 5 - Exceeding item limit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Assertion list\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.response.to.have.status(409);",
+							"    pm.expect(JSON.stringify(jsonData)).to.include(\"code\");",
+							"    pm.expect(jsonData.code).to.eql(409);",
+							"    pm.expect(JSON.stringify(jsonData)).to.include(\"status\");",
+							"    pm.expect(jsonData.status).to.eql(\"You may not request more than 100 items.\");",
+							"    pm.expect(jsonData).to.not.be.null;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/v1/public/characters?apikey={{apikey}}&hash={{hash}}&ts=1&limit=101",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"v1",
+						"public",
+						"characters"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{apikey}}"
+						},
+						{
+							"key": "hash",
+							"value": "{{hash}}"
+						},
+						{
+							"key": "ts",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "101"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
