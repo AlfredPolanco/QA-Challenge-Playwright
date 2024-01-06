@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "all-tests": "npx playwright test --project=chromium",
-    "clean": "rm -rf allure-results/ && rm -rf allure-report/ && rm -rf playwright-report/ && rm -fr results",
+    "clean": "rm -rf allure-results/ && rm -rf allure-report/ && rm -rf playwright-report/ && rm -fr API-TestReport",
     "allure-report": "npm run clean && npm run all-tests && npm run post-test",
     "post-test": "npx allure generate ./allure-results --clean && npx allure open ./allure-report",
     "test": "npx playwright test",
     "test-debug": "npx playwright test --debug",
-    "api-tests-newman": "newman run ./Newman/Collection/Marvel_API_Challenge_Collection.postman_collection.json -e ./Newman/Environment/Marvel_Env.postman_environment.json -r htmlextra --reporter-htmlextra-export ./results/report.html"
+    "api-tests-newman": "npm run clean && newman run ./Newman/Collection/Marvel_API_Challenge_Collection.postman_collection.json -e ./Newman/Environment/Marvel_Env.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export ./API-TestReport/MarvelAPITestReport.html"
   },
   "repository": {
     "type": "git",
