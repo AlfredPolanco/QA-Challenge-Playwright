@@ -2,15 +2,34 @@ version: 2.1
 jobs:
   run-test:
     docker:
-      - image: mcr.microsoft.com/playwright:v1.23.1-focal
+      - image: mcr.microsoft.com/playwright:v1.40.1-focal
     # Steps to the job
     steps:
       - checkout
-      - run: npm i -D @playwright/test
-      - run: npx playwright install --with-deps
       - run:
-          name: Run test
-          command: PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml npx playwright test --reporter=junit --project=chromium
+          name: Install Newman and also install the html extra reporter
+          command: |
+            npm install -g newman
+            npm install -g newman-reporter-htmlextra
+      - run:
+          name: Install dependencies
+          command: npm i -D @playwright/test
+      - run:
+          name: Install Playwright with Chrome
+          command: npx playwright install --with-deps chrome
+      - run:
+          name: Setting up env variables
+          command: |
+            echo "Setting up USERNAME..."
+            echo "Setting up PASSWORD..."
+            echo "Setting up MARVEL API PRIVATE KEY..."
+            echo "Setting up MARVEL API PUBLIC KEY..."
+      - run:
+          name: Run Marvel API Tests
+          command: npm run api-tests-newman
+      - run:
+          name: Run Playwright Tests
+          command: npm run tests
 # Invoke jobs via workflows
 workflows:
   run-test-workflow:

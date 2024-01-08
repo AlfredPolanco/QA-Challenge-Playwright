@@ -1,7 +1,7 @@
 const { expect } = require('@playwright/test');
 require('dotenv').config();
 
-exports.DashboardPage = class DashboardPage {
+exports.UserProfilePage = class UserProfilePage {
 	/**
 	 * @param {import('@playwright/test').Page} page
 	 */
@@ -12,10 +12,6 @@ exports.DashboardPage = class DashboardPage {
 		);
 		this.userDropDown = page.locator('[class=oxd-userdropdown]');
 		this.logoutButton = page.locator('[class=oxd-userdropdown-link]').nth(3);
-		this.expandButton = page.locator('.bi-chevron-right');
-		this.collapseButton = page.locator('.bi-chevron-left');
-		this.menuFlag = page.locator('.toggle');
-		this.buzzPage = page.getByRole('link', { name: 'Buzz' })
 		this.timeAtWorkTitle = page.locator(
 			':nth-child(1) > .oxd-sheet > .orangehrm-dashboard-widget-header > .orangehrm-dashboard-widget-name > .oxd-text'
 		);
@@ -48,21 +44,6 @@ exports.DashboardPage = class DashboardPage {
 		this.employeeDistributionByLocationTitleCard = page.locator(
 			':nth-child(7) > .oxd-sheet'
 		);
-		this.userProfile = page.locator(
-			'.oxd-userdropdown-name'
-		);
-
-		this.aboutSection = page.getByRole(
-			'menuitem', { name: 'About' }
-		);
-
-		this.modalHeader = page.locator(
-			'.orangehrm-modal-header'
-		);
-
-		this.activeEmployees = page.getByText(
-			'Active Employees:'
-		);
 	}
 
 	async logout() {
@@ -82,33 +63,6 @@ exports.DashboardPage = class DashboardPage {
 
 	async clickOnDashboardPage() {
 		await this.dashboardPageButton.click();
-	}
-
-	async clickOnUserProfile() {
-		await expect(this.userProfile).toBeVisible();
-		await this.userProfile.click();
-	}
-
-	async clickOnBuzzPage() {
-		await expect(this.buzzPage).toBeVisible();
-		await this.buzzPage.click();
-	}
-
-	async checkOrangeHRMModalHeader() {
-		await expect(this.modalHeader).toBeVisible();
-	}
-
-	async checkActiveEmployees() {
-		await expect(this.aboutSection).toBeVisible();
-		await this.aboutSection.click();
-		await expect(this.activeEmployees).toBeVisible();
-	}
-
-	async verifyCollapseAndExpandMenu() {
-		await expect(this.menuFlag).toBeHidden();
-		await this.collapseButton.click();
-		await this.expandButton.click();
-		await expect(this.menuFlag).toBeHidden();
 	}
 
 	async timeAtWork() {

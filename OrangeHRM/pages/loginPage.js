@@ -1,9 +1,7 @@
 const { expect } = require('@playwright/test');
-require('dotenv').config();
 
 const fakeEmail = "test@gmail.com";
 const fakePassword = "123";
-
 
 exports.LoginPage = class LoginPage {
 	/**
@@ -61,14 +59,5 @@ exports.LoginPage = class LoginPage {
 		await this.userNameInput.fill(process.env.USERNAME);
 		await this.passwordInput.fill(process.env.PASSWORD);
 		await this.loginButton.click();
-	}
-
-	async pageObjectModel() {
-		await this.checkLoginPage();
-		await this.emptyFieldsAlert();
-		await this.invalidLogin();
-		await this.invalidLoginMissingPassword();
-		await this.invalidLoginMissingEmail();
-		await this.login();
 	}
 };
