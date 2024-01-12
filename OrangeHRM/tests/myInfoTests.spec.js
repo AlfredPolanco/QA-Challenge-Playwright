@@ -1,23 +1,21 @@
 const { test } = require('@playwright/test');
 const { LoginPage } = require('../pages/loginPage');
 const { DashboardPage } = require('../pages/dashboardPage');
+const { MyInfoPage } = require('../pages/myInfoPage');
 
-test.describe('Dashboard tests', () => {
+test.describe('Buzz tests', () => {
 	test.beforeEach(async ({ page }) => {
 		const login = new LoginPage(page);
 		await page.goto('/');
     await login.login();
 	});
 
-  test('TC0029 - Verify Display of Buzz Latest Posts on Dashboard', async ({ page }) => {
+  test('TC0032 - Verify Nickname Update Functionality', async ({ page }) => {
     const dashboard = new DashboardPage(page);
+		const myInfo = new MyInfoPage(page);
     await dashboard.checkDashBoardPage();
-	});
-
-  test('TC0028 - Verify Side Menu Expands/Collapses Correctly', async ({ page }) => {
-    const dashboard = new DashboardPage(page);
-    await dashboard.checkDashBoardPage();
-		await dashboard.verifyCollapseAndExpandMenu();
-
+		await dashboard.clickOnMyInfoPage();
+		await myInfo.checkMyInfoPage();
+		await myInfo.updateNickname();
 	});
 });
