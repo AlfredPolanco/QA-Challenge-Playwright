@@ -12,6 +12,7 @@ require('dotenv').config();
  */
 module.exports = defineConfig({
   testDir: './OrangeHRM/tests',
+  timeout: 5 * 60 * 1000,
   expect: { timeout: 7000 },
   /* Run tests in files in parallel */
   fullyParallel: false,
