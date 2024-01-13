@@ -1,7 +1,7 @@
 const { expect } = require('@playwright/test');
 
-const fakeEmail = "test@gmail.com";
-const fakePassword = "123";
+const fakeEmail = 'test@gmail.com';
+const fakePassword = '123';
 
 exports.LoginPage = class LoginPage {
 	/**
@@ -10,7 +10,9 @@ exports.LoginPage = class LoginPage {
 	constructor(page) {
 		this.page = page;
 		this.loginHeader = page.getByRole('heading');
-		this.usernameDetails = page.getByText('Username : AdminPassword : admin123');
+		this.usernameDetails = page.getByText(
+			'Username : AdminPassword : admin123'
+		);
 		this.userNameInput = page.locator('[name=username]');
 		this.singleRequiredWarning = page.getByText('Required').first();
 		this.passwordInput = page.locator('[type=password]');
@@ -39,7 +41,9 @@ exports.LoginPage = class LoginPage {
 		await this.passwordInput.fill(fakePassword);
 		await this.loginButton.click();
 		await expect(this.invalidCredentialsAlert).toBeVisible();
-		await expect(this.invalidCredentialsAlert).toHaveText('Invalid credentials');
+		await expect(this.invalidCredentialsAlert).toHaveText(
+			'Invalid credentials'
+		);
 	}
 
 	async invalidLoginMissingPassword() {

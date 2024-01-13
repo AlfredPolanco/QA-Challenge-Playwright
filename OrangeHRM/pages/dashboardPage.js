@@ -15,8 +15,9 @@ exports.DashboardPage = class DashboardPage {
 		this.expandButton = page.locator('.bi-chevron-right');
 		this.collapseButton = page.locator('.bi-chevron-left');
 		this.menuFlag = page.locator('.toggle');
-		this.buzzPage = page.getByRole('link', { name: 'Buzz'})
-		this.myInfoPage = page.getByRole('link', { name: 'My info'})
+		this.buzzPage = page.getByRole('link', { name: 'Buzz' });
+		this.myInfoPage = page.getByRole('link', { name: 'My info' });
+		this.directoryPage = page.getByRole('link', { name: 'Directory' });
 		this.timeAtWorkTitle = page.locator(
 			':nth-child(1) > .oxd-sheet > .orangehrm-dashboard-widget-header > .orangehrm-dashboard-widget-name > .oxd-text'
 		);
@@ -49,25 +50,17 @@ exports.DashboardPage = class DashboardPage {
 		this.employeeDistributionByLocationTitleCard = page.locator(
 			':nth-child(7) > .oxd-sheet'
 		);
-		this.userProfile = page.locator(
-			'.oxd-userdropdown-name'
-		);
+		this.userProfile = page.locator('.oxd-userdropdown-name');
 
-		this.aboutSection = page.getByRole(
-			'menuitem', { name: 'About' }
-		);
+		this.aboutSection = page.getByRole('menuitem', { name: 'About' });
 
-		this.changePasswordSection = page.getByRole(
-			'menuitem', { name: 'Change Password' }
-		);
+		this.changePasswordSection = page.getByRole('menuitem', {
+			name: 'Change Password'
+		});
 
-		this.modalHeader = page.locator(
-			'.orangehrm-modal-header'
-		);
+		this.modalHeader = page.locator('.orangehrm-modal-header');
 
-		this.activeEmployees = page.getByText(
-			'Active Employees:'
-		);
+		this.activeEmployees = page.getByText('Active Employees:');
 	}
 
 	async logout() {
@@ -75,7 +68,7 @@ exports.DashboardPage = class DashboardPage {
 		await this.logoutButton.click();
 	}
 
-	async checkDashBoardPage () {
+	async checkDashBoardPage() {
 		await this.timeAtWork();
 		await this.myActions();
 		await this.quickLaunch();
@@ -107,6 +100,11 @@ exports.DashboardPage = class DashboardPage {
 	async clickOnMyInfoPage() {
 		await expect(this.myInfoPage).toBeVisible();
 		await this.myInfoPage.click();
+	}
+
+	async clickOnDirectoryPage() {
+		await expect(this.directoryPage).toBeVisible();
+		await this.directoryPage.click();
 	}
 
 	async checkOrangeHRMModalHeader() {
