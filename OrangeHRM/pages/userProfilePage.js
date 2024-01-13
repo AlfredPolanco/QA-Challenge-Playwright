@@ -51,7 +51,7 @@ exports.UserProfilePage = class UserProfilePage {
 		await this.logoutButton.click();
 	}
 
-	async checkDashBoardPage () {
+	async checkDashBoardPage() {
 		await this.timeAtWork();
 		await this.myActions();
 		await this.quickLaunch();
