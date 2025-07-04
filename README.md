@@ -47,7 +47,13 @@ PASSWORD=REPLACE_WITH_PASSWORD
 npm run e2e-tests
 ```
 
+- To run Playwright tests and generate the test run on Testomat
+```
+TESTOMATIO=${API_KEY}$ npx playwright test
+```
+
 - To run Marvel API Tests the tests just run the following command, once it is done, a report will be generated on `/API-TestReport/MarvelAPITestReport.html`
 ```
 npm run api-tests-newman
 ```
+
