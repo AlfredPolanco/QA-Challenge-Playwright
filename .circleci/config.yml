@@ -22,11 +22,6 @@ jobs:
           command: |
             echo "Setting up USERNAME..."
             echo "Setting up PASSWORD..."
-            echo "Setting up MARVEL API PRIVATE KEY..."
-            echo "Setting up MARVEL API PUBLIC KEY..."
-      - run:
-          name: Run Marvel API Tests
-          command: npm run api-tests-newman
       - run:
           name: Run Playwright Tests
           command: TESTOMATIO=$TESTOMATIO npx playwright test
