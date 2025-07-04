@@ -135,3 +135,4 @@ dist
 /allure-results
 
 .DS_Store
+.cursor

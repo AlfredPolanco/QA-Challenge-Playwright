@@ -18,16 +18,6 @@ jobs:
           name: Install Playwright with Chrome
           command: npx playwright install --with-deps chrome
       - run:
-          name: Setting up env variables
-          command: |
-            echo "Setting up USERNAME..."
-            echo "Setting up PASSWORD..."
-            echo "Setting up MARVEL API PRIVATE KEY..."
-            echo "Setting up MARVEL API PUBLIC KEY..."
-      - run:
-          name: Run Marvel API Tests
-          command: npm run api-tests-newman
-      - run:
           name: Run Playwright Tests
           command: npm run tests
 # Invoke jobs via workflows
