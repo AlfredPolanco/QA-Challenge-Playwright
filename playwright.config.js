@@ -27,6 +27,7 @@ module.exports = defineConfig({
     ['dot'],
     ['list'],
     ['allure-playwright'],
+    ['./node_modules/@testomatio/reporter/lib/adapter/playwright.js', {apiKey: process.env.TESTOMATIO,}],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {

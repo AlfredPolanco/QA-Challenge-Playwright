@@ -3,14 +3,14 @@ const { LoginPage } = require('../pages/loginPage');
 const { DashboardPage } = require('../pages/dashboardPage');
 const { UpdatePasswordPage } = require('../pages/updatePasswordPage');
 
-test.describe('User Profile', () => {
+test.describe('User Profile @Sc47f0bab', () => {
 	test.beforeEach(async ({ page }) => {
 		const login = new LoginPage(page);
 		await page.goto('/');
 		await login.login();
 	});
 
-	test('TC0027 - Verify Display of Active Employees Count', async ({
+	test('TC0027 - Verify Display of Active Employees Count @Tf7ea0014', async ({
 		page
 	}) => {
 		const dashboard = new DashboardPage(page);
@@ -19,7 +19,7 @@ test.describe('User Profile', () => {
 		await dashboard.checkActiveEmployees();
 	});
 
-	test('TC0031 - Verify Change Password Functionality', async ({ page }) => {
+	test('TC0031 - Verify Change Password Functionality @Tf912e9e9', async ({ page }) => {
 		const dashboard = new DashboardPage(page);
 		const updatePassword = new UpdatePasswordPage(page);
 		await dashboard.checkDashBoardPage();

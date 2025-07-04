@@ -27,6 +27,7 @@
   "homepage": "https://github.com/AlfredPolanco/QA-Challenge-Playwright#readme",
   "devDependencies": {
     "@playwright/test": "^1.40.1",
+    "@testomatio/reporter": "^2.0.1",
     "@types/node": "^20.10.6",
     "allure-commandline": "^2.25.0",
     "allure-playwright": "^2.10.0",
