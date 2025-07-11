@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   run-test:
     docker:
-      - image: mcr.microsoft.com/playwright:v1.53.2-focal
+      - image: mcr.microsoft.com/playwright:v1.52.0-focal
     # Steps to the job
     steps:
       - checkout
