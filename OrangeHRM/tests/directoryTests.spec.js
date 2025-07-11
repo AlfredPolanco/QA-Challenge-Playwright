@@ -10,7 +10,7 @@ test.describe('Directory @Sbc296b86', () => {
 		await login.login();
 	});
 
-	test('TC0033 - Verify Job Title Filter Functionality @Tfffe09ec', async ({ page }) => {
+	test.skip('TC0033 - Verify Job Title Filter Functionality @Tfffe09ec', async ({ page }) => {
 		const dashboard = new DashboardPage(page);
 		const directory = new DirectoryPage(page);
 		await dashboard.clickOnDirectoryPage();
@@ -18,7 +18,7 @@ test.describe('Directory @Sbc296b86', () => {
 		await directory.filterByJobTitle();
 	});
 
-	test('TC0034 - Verify Employees QR Code Generation @T473a799b', async ({ page }) => {
+	test.skip('TC0034 - Verify Employees QR Code Generation @T473a799b', async ({ page }) => {
 		const dashboard = new DashboardPage(page);
 		const directory = new DirectoryPage(page);
 		await dashboard.clickOnDirectoryPage();

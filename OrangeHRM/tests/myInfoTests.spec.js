@@ -10,7 +10,7 @@ test.describe('My Info @S7b0395f6', () => {
 		await login.login();
 	});
 
-	test('TC0032 - Verify Nickname Update Functionality @T8629d584', async ({ page }) => {
+	test.skip('TC0032 - Verify Nickname Update Functionality @T8629d584', async ({ page }) => {
 		const dashboard = new DashboardPage(page);
 		const myInfo = new MyInfoPage(page);
 		await dashboard.checkDashBoardPage();

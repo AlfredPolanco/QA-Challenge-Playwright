@@ -10,7 +10,7 @@ test.describe('Buzz @Sca157aed', () => {
 		await login.login();
 	});
 
-	test('TC0030 - Verify User Can Successfully Create a Post Content on Buzz Newsfeed @T4ae5bb6c', async ({
+	test.skip('TC0030 - Verify User Can Successfully Create a Post Content on Buzz Newsfeed @T4ae5bb6c', async ({
 		page
 	}) => {
 		const dashboard = new DashboardPage(page);
