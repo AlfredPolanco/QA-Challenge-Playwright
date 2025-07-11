@@ -9,7 +9,7 @@ To access them, please contact me at alfredpolanci@gmail.com
 ## Tech Stack
 
 [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics)
-[![CircleCI](https://img.shields.io/badge/circle%20ci-%23161616.svg?style=for-the-badge&logo=circleci&logoColor=white)](https://circleci.com/docs/getting-started/)
+[![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://docs.github.com/en/actions)
 [![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/about/)
 [![Playwright](https://img.shields.io/badge/-Playwright-orange)](https://playwright.dev/)
 [![DotEnv](https://img.shields.io/badge/-dotenv-orange)](https://www.npmjs.com/package/dotenv)
