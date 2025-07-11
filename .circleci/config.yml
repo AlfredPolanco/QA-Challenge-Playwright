@@ -25,6 +25,8 @@ jobs:
             echo "Setting up USERNAME..."
             echo "Setting up PASSWORD..."
             echo "Setting up TESTOMATIO..."
+            echo "TESTOMATIO env var length: ${#TESTOMATIO}"
+            echo "TESTOMATIO env var first 10 chars: ${TESTOMATIO:0:10}..."
       - run:
           name: Run Playwright Tests
           command: npx playwright test
