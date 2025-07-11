@@ -3,6 +3,8 @@ jobs:
   run-test:
     docker:
       - image: mcr.microsoft.com/playwright:v1.54.0-noble
+    environment:
+      TESTOMATIO: $TESTOMATIO
     # Steps to the job
     steps:
       - checkout
@@ -22,9 +24,10 @@ jobs:
           command: |
             echo "Setting up USERNAME..."
             echo "Setting up PASSWORD..."
+            echo "Setting up TESTOMATIO..."
       - run:
           name: Run Playwright Tests
-          command: TESTOMATIO=$TESTOMATIO npx playwright test
+          command: npx playwright test
 # Invoke jobs via workflows
 workflows:
   run-test-workflow:
