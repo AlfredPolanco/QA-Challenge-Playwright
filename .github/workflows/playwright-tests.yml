@@ -28,17 +28,11 @@ jobs:
       run: npm ci
     
     - name: Install Playwright browsers
-      run: npx playwright install --with-deps chrome
+      run: npx playwright install --with-deps
     
     - name: Setup environment variables
       run: |
         echo "Setting up environment variables..."
-        echo "TESTOMATIO=${TESTOMATIO}"
-        echo "TESTOMATIO env var length: ${#TESTOMATIO}"
-        echo "TESTOMATIO env var first 10 chars: ${TESTOMATIO:0:10}..."
-        echo "TESTOMATIO=${TESTOMATIO}" >> .env
-        echo "USERNAME=${USERNAME}" >> .env
-        echo "PASSWORD=${PASSWORD}" >> .env
     
     - name: Run Playwright tests
       run: TESTOMATIO=$TESTOMATIO npm run tests
