@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   run-test:
     docker:
-      - image: mcr.microsoft.com/playwright:v1.40.1-focal
+      - image: mcr.microsoft.com/playwright:v1.54.0-noble
     # Steps to the job
     steps:
       - checkout
@@ -18,8 +18,13 @@ jobs:
           name: Install Playwright with Chrome
           command: npx playwright install --with-deps chrome
       - run:
+          name: Setting up env variables
+          command: |
+            echo "Setting up USERNAME..."
+            echo "Setting up PASSWORD..."
+      - run:
           name: Run Playwright Tests
-          command: npm run tests
+          command: TESTOMATIO=$TESTOMATIO npx playwright test
 # Invoke jobs via workflows
 workflows:
   run-test-workflow:
