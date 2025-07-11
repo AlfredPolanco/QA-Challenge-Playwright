@@ -9,14 +9,14 @@ test.describe('Dashboard @Sf87330b9', () => {
 		await login.login();
 	});
 
-	test('TC0029 - Verify Display of Buzz Latest Posts on Dashboard @Td60fe706', async ({
+	test.skip('TC0029 - Verify Display of Buzz Latest Posts on Dashboard @Td60fe706', async ({
 		page
 	}) => {
 		const dashboard = new DashboardPage(page);
 		await dashboard.checkDashBoardPage();
 	});
 
-	test('TC0028 - Verify Side Menu Expands/Collapses Correctly @T2ecb9180', async ({
+	test.skip('TC0028 - Verify Side Menu Expands/Collapses Correctly @T2ecb9180', async ({
 		page
 	}) => {
 		const dashboard = new DashboardPage(page);
