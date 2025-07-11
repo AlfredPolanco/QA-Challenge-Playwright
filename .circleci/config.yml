@@ -29,7 +29,7 @@ jobs:
             echo "TESTOMATIO env var first 10 chars: ${TESTOMATIO:0:10}..."
       - run:
           name: Run Playwright Tests
-          command: npx playwright test TESTOMATIO=$TESTOMATIO
+          command: TESTOMATIO=$TESTOMATIO npm run tests 
 # Invoke jobs via workflows
 workflows:
   run-test-workflow:
